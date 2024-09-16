@@ -20,5 +20,5 @@ output = (f"Mobil Tesla seharga {harga_setiap_mobil} diskon 17% menjadi {harga_t
           f"Mobil Toyota seharga {harga_setiap_mobil} diskon 21% menjadi {harga_toyota_setelah_diskon}, "
           f"Mobil Hyundai seharga {harga_setiap_mobil} diskon 23% menjadi {harga_hyundai_setelah_diskon}, "
           f"dan {harga_setiap_mobil} modulus 7 adalah {modulus_nim}.")
-
+print(nama,nim)
 print(output)
