@@ -1,6 +1,7 @@
+# Nama  : Ikhsan
+# Nim   : 2409106118
+# Kelas : C 2024
 
-
-# Input nama, NIM, dan harga setiap mobil
 nama = input("Masukkan nama: ")
 nim = input("Masukkan NIM: ")
 harga_setiap_mobil = int(input("Masukkan harga setiap mobil: "))
