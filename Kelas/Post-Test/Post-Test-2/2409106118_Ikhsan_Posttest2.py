@@ -6,7 +6,6 @@ nama = input("Masukkan nama: ")
 nim = input("Masukkan NIM: ")
 harga_setiap_mobil = int(input("Masukkan harga setiap mobil: "))
 
-
 diskon_tesla = 0.17  # 17%
 diskon_toyota = 0.21  # 21%
 diskon_hyundai = 0.23  # 23%
@@ -15,9 +14,7 @@ harga_tesla_setelah_diskon = harga_setiap_mobil - (harga_setiap_mobil * diskon_t
 harga_toyota_setelah_diskon = harga_setiap_mobil - (harga_setiap_mobil * diskon_toyota)
 harga_hyundai_setelah_diskon = harga_setiap_mobil - (harga_setiap_mobil * diskon_hyundai)
 
-
 modulus_nim = int(nim) % 7
-
 
 output = (f"Mobil Tesla seharga {harga_setiap_mobil} diskon 17% menjadi {harga_tesla_setelah_diskon}, "
           f"Mobil Toyota seharga {harga_setiap_mobil} diskon 21% menjadi {harga_toyota_setelah_diskon}, "
