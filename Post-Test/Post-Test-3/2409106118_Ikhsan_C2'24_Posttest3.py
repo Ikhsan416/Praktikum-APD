@@ -1,6 +1,5 @@
 merkmobil = input("Masukkan Merk Mobil Yang Ingin Anda Beli:..!")
 harga = int(input("Masukkan Harga Mobil:..!"))
-harga = harga
 if merkmobil == "tesla":
     diskon = harga * 0.17
     bayartotal = harga - diskon
