@@ -4,10 +4,10 @@
         <attribute name="name" value="2409106118_Ikhsan_C2'24_Posttest4"/>
         <attribute name="authors" value="USER"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2024-09-28 11:56:02 PM"/>
+        <attribute name="saved" value="2024-09-29 12:42:29 AM"/>
         <attribute name="created" value="VVNFUjtJS0hTQU47MjAyNC0wOS0yODswODowNzozNyBQTTsyMDYx"/>
         <attribute name="edited" value="VVNFUjtJS0hTQU47MjAyNC0wOS0yODswODowNzo0NSBQTTsxO1VTRVI7SUtIU0FOOzIwMjQtMDktMjA7MDE6NTI6MDMgUE07MjQwOTEwNjExOF9Ja2hzYW5fQzInMjRfUG9zdHRlc3QzLmZwcmc7NzM4NA=="/>
-        <attribute name="edited" value="VVNFUjtJS0hTQU47MjAyNC0wOS0yODsxMTo1NjowMiBQTTsyOzIxNjA="/>
+        <attribute name="edited" value="VVNFUjtJS0hTQU47MjAyNC0wOS0yOTsxMjo0MjoyOSBBTTszOzIxNTI="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -24,6 +24,17 @@
                 <input variable="password"/>
                 <if expression="nama == &quot;ikhsan&quot; and password == 118">
                     <then>
+                        <output expression="&quot;Apa Anda Ingin Mengakhiri Program Ini:(lanjut / berhenti)&quot;" newline="True"/>
+                        <input variable="program"/>
+                        <if expression="program == &quot;berhenti&quot;">
+                            <then>
+                                <output expression="&quot;Program Anda Telah Selesai!&quot;" newline="True"/>
+                                <breakpoint expression="" always="True"/>
+                            </then>
+                            <else>
+                                <output expression="&quot;Program Di Lanjut!&quot;" newline="True"/>
+                            </else>
+                        </if>
                         <output expression="&quot;Masukkan Merk Mobil Yang Ingin Anda Beli:..!&quot;" newline="True"/>
                         <input variable="merkmobil"/>
                         <output expression="&quot;Masukkan Harga Mobil:..!&quot;" newline="True"/>
@@ -83,7 +94,6 @@
                     </else>
                 </if>
             </while>
-            <output expression="&quot;Batas Pengulangan Yang Anda Miliki Telah Habis, Terimakasih Telah Mencoba!!&quot;" newline="True"/>
         </body>
     </function>
 </flowgorithm>
