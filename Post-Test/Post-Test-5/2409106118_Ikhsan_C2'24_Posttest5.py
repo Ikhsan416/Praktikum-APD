@@ -72,13 +72,13 @@ while True:
 
                     elif status == "2":
                         if akun[2] == 'admin':
-                            for indeks, tiket in enumerate(tiket_konser):  # Menampilkan semua tiket
-                                print(f"{indeks + 1}. Judul Konser: {tiket[0]}\nHarga Tiket: {tiket[1]}\n")
+                            for tiket in tiket_konser:  
+                                print(f"Judul Konser: {tiket[0]}\nHarga Tiket: {tiket[1]}\n")
                             if not tiket_konser:
                                 print("Opps, saat ini belum ada tiket konser, silahkan tambah tiket terlebih dahulu.\n")
                         else:
-                            for indeks, tiket in enumerate(akun[3]):  # Menampilkan semua tiket
-                                print(f"{indeks + 1}. Judul Konser: {tiket[0]}\nHarga Tiket: {tiket[1]}\n")
+                            for tiket in akun[3]:  
+                                print(f"Judul Konser: {tiket[0]}\nHarga Tiket: {tiket[1]}\n")
                             if not akun[3]:
                                 print("Opps, saat ini kamu belum punya tiket, silahkan beli tiket terlebih dahulu.\n")
                             
