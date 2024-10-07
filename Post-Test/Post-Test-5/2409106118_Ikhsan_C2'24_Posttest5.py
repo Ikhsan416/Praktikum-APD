@@ -17,7 +17,7 @@ class style():
     CSELECTED = '\33[7m'
 
     CBLACK  = '\33[30m'
-    CRED    = '\33[31m'
+    CRED    = '\33[31m' 
     CGREEN  = '\33[32m'
     CYELLOW = '\33[33m'
     CBLUE   = '\33[34m'
@@ -109,14 +109,15 @@ while True:
                         if akun[2] == 'admin':
                             judul_konser = input("Judul Konser: ")
                             lokasi_konser = input("Lokasi Konser: ")
+                            tanggal_konser = input("Hari/Tanggal Konser: ")
                             harga_tiket = input("Harga Tiket: ")
-                            tiket_konser.append([judul_konser, lokasi_konser, harga_tiket])  # Menambahkan tiket ke dalam list
+                            tiket_konser.append([judul_konser, lokasi_konser, tanggal_konser, harga_tiket])  # Menambahkan tiket ke dalam list
                             print(style.CGREEN2 + "Konser berhasil ditambahkan!\n")
                         else:
                             judul_konser = input("Judul Konser: ")
                             for tiket in tiket_konser:
                                 if tiket[0] == judul_konser:
-                                    akun[3].append([judul_konser, tiket[1], tiket[2]])  # Menambahkan tiket ke dalam list
+                                    akun[3].append([judul_konser, tiket[1], tiket[2], tiket[3]])  # Menambahkan tiket ke dalam list
                                     print(style.CGREEN2 + "Tiket konser berhasil dibeli!\n")
                                     break
                             else:
@@ -125,12 +126,12 @@ while True:
                     elif status == "2":
                         if akun[2] == 'admin':
                             for tiket in tiket_konser:  
-                                print(style.CGREEN2 + f"Judul Konser: {tiket[0]}\nLokasi Konser: {tiket[1]}\nHarga Tiket: {tiket[2]}\n")
+                                print(style.CGREEN2 + f"Judul Konser: {tiket[0]}\nLokasi Konser: {tiket[1]}\nHari/Tanggal Konser: {tiket[2]}\nHarga Tiket: {tiket[3]}\n")
                             if not tiket_konser:
                                 print(style.CRED2 + "Opps, saat ini belum ada konser, silahkan tambah konser terlebih dahulu.\n")
                         else:
                             for tiket in akun[3]:  
-                                print(style.CGREEN2 + f"Judul Konser: {tiket[0]}\nLokasi Konser: {tiket[1]}\nHarga Tiket: {tiket[2]}\n")
+                                print(style.CGREEN2 + f"Judul Konser: {tiket[0]}\nLokasi Konser: {tiket[1]}\nHari/Tanggal Konser: {tiket[2]}\nHarga Tiket: {tiket[3]}\n")
                             if not akun[3]:
                                 print(style.CRED2 + "Opps, saat ini kamu belum punya tiket, silahkan beli tiket terlebih dahulu.\n")
                     elif status == "3":
@@ -142,13 +143,14 @@ while True:
                                 if 0 <= edit < len(tiket_konser):
                                     judul_baru = input("Masukkan judul yang baru: ")
                                     lokasi_baru = input("Masukkan lokasi yang baru: ")
+                                    tanggal_baru = input("Masukkan hari/tanggal konser baru: ")
                                     harga_baru = input("Masukkan harga yang baru: ")
                                     print("Apa kamu yakin ingin mengedit konser ?")
                                     print("1. Iya")
                                     print("2. Tidak")
                                     memastikan_edit = input("Pilih: ")
                                     if memastikan_edit == "1":
-                                        tiket_konser[edit] = [judul_baru, lokasi_baru, harga_baru]  # Mengedit konser
+                                        tiket_konser[edit] = [judul_baru, lokasi_baru, tanggal_baru, harga_baru]  # Mengedit konser
                                         print(style.CGREEN2 + "Konser yang kamu pilih sudah di edit ya!\n")
                                     elif memastikan_edit == "2":
                                         print(style.CRED2 + "Aksi untuk mengedit konser dibatalkan")
