@@ -1,3 +1,7 @@
+# Nama  :   Ikhsan
+# Nim   :   2409106118
+# Kelas :   C2'24
+
 # Inisialisasi data pengguna dan data tiket konser
 akun_pengguna = []
 tiket_konser = []
