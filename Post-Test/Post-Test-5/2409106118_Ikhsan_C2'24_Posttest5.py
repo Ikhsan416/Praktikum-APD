@@ -55,11 +55,11 @@ class style():
 while True:
     print(style.CBLUE2 + "Halo! Selamat Datang di Pemesanan Tiket Konser")
     print(style.CWHITE + "Silakan pilih 'Daftar akun' jika belum buat akun, dan jika sudah memiliki akun silahkan 'Login'")
-    print(style.CGREEN2 + "―――――――――――――――――――――――――――――")
-    print(style.CBEIGE2 + "1. Daftar akun")
-    print(style.CGREEN2 + "2. Login")
-    print(style.CRED2 + "3. Exit")
-    print(style.CBLUE2 + "―――――――――――――――――――――――――――――")
+    print(style.CGREEN2 + "╔╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╗")
+    print(style.CBEIGE2 + "╠ 1. Daftar akun                          ╣")
+    print(style.CGREEN2 + "╠ 2. Login                                ╣")
+    print(style.CRED2 +   "╠ 3. Exit                                 ╣")
+    print(style.CBLUE2 +  "╚╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╝")
     opsi = input("Pilih opsi: ")
     print(" ")
 
@@ -83,24 +83,24 @@ while True:
             print(style.CGREEN2 + f"Akun Anda berhasil terdaftar dengan ID: {Username}")
 
     elif opsi == "2":
-        print(style.CYELLOW2 + "Hi, Silahkan login dulu ya!")
+        print(style.CYELLOW2 + "Hi, Silahkan login dulu ya!")   
         Username = input("Username: ")
         Password = input("Password: ")
         for akun in akun_pengguna:
             if akun[0] == Username and akun[1] == Password:  # Cocokkan username dan password
                 while True:
-                    print(style.CGREEN2 + f"\nSelamat datang {Username}!")
-                    print(style.CYELLOW2 + "―――Silakan pilih aksi!―――")
+                    print(style.CGREEN2 +      f"\nSelamat datang {Username}!")
+                    print(style.CYELLOW2 +      "╔╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╗")
                     if akun[2] == 'admin':
-                        print(style.CBEIGE2 + "1. Tambah konser")
-                        print(style.CGREEN2 + "2. Lihat konser")
-                        print(style.CYELLOW2 + "3. Edit konser")
-                        print(style.CRED2 + "4. Hapus konser")
+                        print(style.CBEIGE2 +   "╠ 1. Tambah konser                        ╣")
+                        print(style.CGREEN2 +   "╠ 2. Lihat konser                         ╣")
+                        print(style.CYELLOW2 +  "╠ 3. Edit konser                          ╣")
+                        print(style.CRED2 +     "╠ 4. Hapus konser                         ╣")
                     else:
-                        print(style.CBEIGE2 + "1. Beli tiket konser")
-                        print(style.CGREEN2 + "2. Lihat tiket konser yang sudah dibeli")
-                    print(style.CBLUE2 + "5. Exit")
-                    print(style.CGREEN2 + "―――――――――――――――――――――――――――――")
+                        print(style.CBEIGE2 +   "╠ 1. Beli tiket konser                    ╣")
+                        print(style.CGREEN2 +   "╠ 2. Lihat tiket konser yang sudah dibeli ╣")
+                    print(style.CBLUE2 +        "╠ 5. Exit                                 ╣")
+                    print(style.CGREEN2 +       "╚╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╝")
 
                     status = input("Pilih opsi: ")
                     print(" ")
