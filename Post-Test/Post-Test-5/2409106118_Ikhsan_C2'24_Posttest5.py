@@ -49,7 +49,6 @@ while True:
                         print("2. Lihat konser")
                         print("3. Edit konser")
                         print("4. Hapus konser")
-                        print("5. Exit")
                     else:
                         print("1. Beli tiket konser")
                         print("2. Lihat tiket konser yang sudah dibeli")
