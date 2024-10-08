@@ -53,7 +53,7 @@ class style():
     CWHITEBG2  = '\33[107m'
 
 while True:
-    print(style.CBLUE2 + "Halo! Selamat Datang di Pemesanan Tiket Konser")
+    print(style.CBLUE2 + "Halo! Selamat Datang di Pemesanan Tiket Konser")  
     print(style.CWHITE + "Silakan pilih 'Daftar akun' jika belum buat akun, dan jika sudah memiliki akun silahkan 'Login'")
     print(style.CGREEN2 + "╔╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╗")
     print(style.CBEIGE2 + "╠ 1. Daftar akun                          ╣")
