@@ -139,8 +139,12 @@ while True:
                         if not tiket_konser:
                             print(style.CRED2 + "Tidak ada konser yang bisa diedit.")
                         else:
-                            edit = input("Masukkan judul konser yang ingin diedit: ")
-                            if edit in tiket_konser:
+                            print("Daftar Konser:")
+                            for i, (judul, tiket) in enumerate(tiket_konser.items()):
+                                print(f"{i+1}. {judul}")
+                            edit = int(input("Masukkan nomor konser yang ingin diedit: ")) - 1
+                            if 0 <= edit < len(tiket_konser):
+                                judul_konser = list(tiket_konser.keys())[edit]
                                 judul_baru = input("Masukkan judul yang baru: ")
                                 lokasi_baru = input("Masukkan lokasi yang baru: ")
                                 tanggal_baru = input("Masukkan hari/tanggal konser baru: ")
@@ -150,14 +154,15 @@ while True:
                                 print("2. Tidak")
                                 memastikan_edit = input("Pilih: ")
                                 if memastikan_edit == "1":
-                                    tiket_konser[edit] = {'lokasi': lokasi_baru, 'tanggal': tanggal_baru, 'harga': harga_baru}  # Mengedit konser
+                                    del tiket_konser[judul_konser]
+                                    tiket_konser[judul_baru] = {'lokasi': lokasi_baru, 'tanggal': tanggal_baru, 'harga': harga_baru}  # Mengedit konser
                                     print(style.CGREEN2 + "Konser yang kamu pilih sudah di edit ya!\n")
                                 elif memastikan_edit == "2":
                                     print(style.CRED2 + "Aksi untuk mengedit konser dibatalkan")
                                 else:
                                     print(style.CRED2 + "Mohon pilih '1' atau '2'")
                             else:
-                                print(style.CRED2 + "Tidak ada konser yang kamu maksud, silahkan input ulang.\n")
+                                print(style.CRED2 + "Tidak ada nomor konser yang kamu maksud, silahkan input ulang.\n")
                     else:
                         print("Anda tidak memiliki akses untuk mengedit konser.\n")
 
