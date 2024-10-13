@@ -113,6 +113,9 @@ while True:
                         tiket_konser[judul_konser] = {'lokasi': lokasi_konser, 'tanggal': tanggal_konser, 'harga': harga_tiket}  # Menambahkan tiket ke dalam dictionary
                         print(style.CGREEN2 + "Konser berhasil ditambahkan!\n")
                     else:
+                        for judul, tiket in tiket_konser.items():
+                            print(style.CGREEN2 + "Tiket Yang Tersedia: ")
+                            print(style.CGREEN2 + f"Judul Konser: {judul}\nLokasi Konser: {tiket['lokasi']}\nHari/Tanggal Konser: {tiket['tanggal']}\nHarga Tiket: {tiket['harga']}\n")
                         judul_konser = input("Judul Konser: ")
                         if judul_konser in tiket_konser:
                             akun_pengguna[Username]['tiket'].append({'judul': judul_konser, 'lokasi': tiket_konser[judul_konser]['lokasi'], 'tanggal': tiket_konser[judul_konser]['tanggal'], 'harga': tiket_konser[judul_konser]['harga']})  # Menambahkan tiket ke dalam list
