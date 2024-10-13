@@ -22,7 +22,7 @@ class style():
     CSELECTED = '\33[7m'
 
     CBLACK  = '\33[30m'
-    CRED    = '\33[31m'
+    CRED    = '\33[31m' 
     CGREEN  = '\33[32m'
     CYELLOW = '\33[33m'
     CBLUE   = '\33[34m'
@@ -60,7 +60,7 @@ class style():
 while True:
     print(style.CBLUE2 + "Halo! Selamat Datang di Pemesanan Tiket Konser")  
     print(style.CWHITE + "Silakan pilih 'Daftar akun' jika belum buat akun, dan jika sudah memiliki akun silahkan 'Login'")
-    print(style.CVIOLET2 +"╔╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╗")
+    print(style.CGREEN2 + "╔╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╗")
     print(style.CBEIGE2 + "╠ 1. Daftar akun                          ╣")
     print(style.CGREEN2 + "╠ 2. Login                                ╣")
     print(style.CRED2 +   "╠ 3. Exit                                 ╣")
