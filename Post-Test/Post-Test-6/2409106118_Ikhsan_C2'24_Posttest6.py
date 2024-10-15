@@ -7,7 +7,7 @@ tiket_konser = {
     "Lyodra": {'lokasi': 'Samarinda', 'tanggal': '11-Oktober-2024', 'harga': 'Rp 200000'},
     "Tulus": {'lokasi': 'Balikpapan', 'tanggal': '12-Oktober-2024', 'harga': 'Rp 500000'},
     "Bruno Mars": {'lokasi': 'Jakarta', 'tanggal': '4-Desember-2024', 'harga': 'Rp 3000000'},
-    "Dj Pehol - Jono Joni": {'lokasi': 'Samarinda', 'tanggal': '1-Januari-2025', 'harga': 'Rp 80000'},
+    "Denny Caknan": {'lokasi': 'Samarinda', 'tanggal': '1-Januari-2025', 'harga': 'Rp 80000'},
     "Payung Teduh": {'lokasi': 'Bandung', 'tanggal': '4-Januari-2025', 'harga': 'Rp 200000'}
 }
 
