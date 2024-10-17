@@ -20,6 +20,7 @@ class style():
     CBLINK    = '\33[5m'
     CBLINK2   = '\33[6m'
     CSELECTED = '\33[7m'
+    
     CBLACK  = '\33[30m'
     CRED    = '\33[31m' 
     CGREEN  = '\33[32m'
@@ -28,6 +29,7 @@ class style():
     CVIOLET = '\33[35m'
     CBEIGE  = '\33[36m'
     CWHITE  = '\33[37m'
+    
     CBLACKBG  = '\33[40m'
     CREDBG    = '\33[41m'
     CGREENBG  = '\33[42m'
@@ -36,6 +38,7 @@ class style():
     CVIOLETBG = '\33[45m'
     CBEIGEBG  = '\33[46m'
     CWHITEBG  = '\33[47m'
+    
     CGREY    = '\33[90m'
     CRED2    = '\33[91m'
     CGREEN2  = '\33[92m'
@@ -44,6 +47,7 @@ class style():
     CVIOLET2 = '\33[95m'
     CBEIGE2  = '\33[96m'
     CWHITE2  = '\33[97m'
+    
     CGREYBG    = '\33[100m'
     CREDBG2    = '\33[101m'
     CGREENBG2  = '\33[102m'
@@ -54,13 +58,18 @@ class style():
     CWHITEBG2  = '\33[107m'
 
 def tampilkan_menu():
-    print(style.CBLUE2 + "Halo! Selamat Datang di Pemesanan Tiket Konser")  
-    print(style.CWHITE + "Silakan pilih 'Daftar akun' jika belum buat akun, dan jika sudah memiliki akun silahkan 'Login'")
-    print(style.CGREEN2 + "╔╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╗")
-    print(style.CBEIGE2 + "╠ 1. Daftar akun                          ╣")
-    print(style.CGREEN2 + "╠ 2. Login                                ╣")
-    print(style.CRED2 +   "╠ 3. Exit                                 ╣")
-    print(style.CBLUE2 +  "╚╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╝")
+    print(style.CBLUE2 + """
+    ═════════════════════════════════════════════════════════
+        Selamat Datang Di Aplikasi Pemesanan Tiket Konser
+            Silahkan Pilih Opsi Sign-In atau Sign-Up
+            
+        ⒈   Daftar Akun
+        ⒉   Login
+        ⒊   Exit
+        
+        Copyrigth.IkhsanC2
+    ═════════════════════════════════════════════════════════
+          """)
 
 def registrasi_akun():
     print(style.CGREEN2 + "Halo Pengguna baru! Ayo buat akun dulu")
@@ -87,22 +96,34 @@ def login_akun():
         return None
 
 def tampilkan_menu_admin(Username):
-    print(style.CGREEN2 +      f"\nSelamat datang {Username}!")
-    print(style.CYELLOW2 +  "╔╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╗")
-    print(style.CBEIGE2 +   "╠ 1. Tambah konser                        ╣")
-    print(style.CGREEN2 +   "╠ 2. Lihat konser                         ╣")
-    print(style.CYELLOW2 +  "╠ 3. Edit konser                          ╣")
-    print(style.CRED2 +     "╠ 4. Hapus konser                         ╣")
-    print(style.CBLUE2 +    "╠ 5. Exit                                 ╣")
-    print(style.CGREEN2 +   "╚╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╝")
+    print(style.CGREEN2 +   f"""
+    ═════════════════════════════════════════════════════════
+                    Penjualan Tiket Konser Sanz
+                        {Username} Di Menu Admin
+            
+        ⒈   Tambah Konser
+        ⒉   Lihat Konser
+        ⒊   Edit Konser
+        ⒋   Hapus Konser
+        ⒌   Exit
+        
+        Copyrigth.IkhsanC2
+    ═════════════════════════════════════════════════════════
+          """)
 
 def tampilkan_menu_pengguna(Username):
-    print(style.CGREEN2 +   f"\nSelamat datang {Username}!")
-    print(style.CYELLOW2 +  "╔╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╗")
-    print(style.CBEIGE2 +   " ╠ 1. Beli tiket konser                    ╣")
-    print(style.CGREEN2 +   "╠ 2. Lihat tiket konser yang sudah dibeli ╣")
-    print(style.CBLUE2 +    "╠ 3. Exit                                 ╣")
-    print(style.CGREEN2 +   "╚╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╝")
+    print(style.CVIOLET2 +   f"""
+    ═════════════════════════════════════════════════════════
+                    Penjualan Tiket Konser Sanz
+                        {Username} Di Menu Pengguna
+            
+        ⒈   Beli Tiket Konser
+        ⒉   Lihat Tiket Yang Sudah Di Beli
+        ⒊   Exit
+        
+        Copyrigth.IkhsanC2
+    ═════════════════════════════════════════════════════════
+          """)
 
 def tambah_konser():
     judul_konser = input("Judul Konser: ")
