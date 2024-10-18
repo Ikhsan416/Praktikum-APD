@@ -1,8 +1,11 @@
+from prettytable import PrettyTable
+
 # Inisialisasi data pengguna dan data tiket konser
 akun_pengguna = {
     "penjual": {'password': 'jual', 'role': 'admin', 'tiket': []},
     "pembeli": {'password': 'beli', 'role': 'pengguna', 'tiket': []}
 }
+
 tiket_konser = {
     "Lyodra": {'lokasi': 'Samarinda', 'tanggal': '11-Oktober-2024', 'harga': 'Rp 200000'},
     "Tulus": {'lokasi': 'Balikpapan', 'tanggal': '12-Oktober-2024', 'harga': 'Rp 500000'},
@@ -20,7 +23,7 @@ class style():
     CBLINK    = '\33[5m'
     CBLINK2   = '\33[6m'
     CSELECTED = '\33[7m'
-    
+
     CBLACK  = '\33[30m'
     CRED    = '\33[31m' 
     CGREEN  = '\33[32m'
@@ -29,7 +32,7 @@ class style():
     CVIOLET = '\33[35m'
     CBEIGE  = '\33[36m'
     CWHITE  = '\33[37m'
-    
+
     CBLACKBG  = '\33[40m'
     CREDBG    = '\33[41m'
     CGREENBG  = '\33[42m'
@@ -38,7 +41,7 @@ class style():
     CVIOLETBG = '\33[45m'
     CBEIGEBG  = '\33[46m'
     CWHITEBG  = '\33[47m'
-    
+
     CGREY    = '\33[90m'
     CRED2    = '\33[91m'
     CGREEN2  = '\33[92m'
@@ -47,7 +50,7 @@ class style():
     CVIOLET2 = '\33[95m'
     CBEIGE2  = '\33[96m'
     CWHITE2  = '\33[97m'
-    
+
     CGREYBG    = '\33[100m'
     CREDBG2    = '\33[101m'
     CGREENBG2  = '\33[102m'
@@ -82,21 +85,21 @@ def registrasi_akun():
         if role not in ['admin', 'pengguna']:
             print(style.CRED2 + "Peran tidak valid. Harus 'admin' atau 'pengguna'.")
             return
-        akun_pengguna[Username] = {'password': Password, 'role': role, 'tiket': []}  # Simpan username, password , dan tiket (sebagai list kosong)
+        akun_pengguna[Username] = {'password': Password, 'role': role, 'tiket': []}
         print(style.CGREEN2 + f"Akun Anda berhasil terdaftar dengan ID: {Username}")
 
 def login_akun():
     print(style.CYELLOW2 + "Hi, Silahkan login dulu ya!")   
     Username = input("Username: ")
     Password = input("Password: ")
-    if Username in akun_pengguna and akun_pengguna[Username]['password'] == Password:  # Cocokkan username dan password
+    if Username in akun_pengguna and akun_pengguna[Username]['password'] == Password:
         return Username
     else:
         print(style.CRED2 + "Username dan password anda salah, silahkan coba lagi\n")
         return None
 
 def tampilkan_menu_admin(Username):
-    print(style.CGREEN2 +   f"""
+    print(style.CGREEN2 + f"""
     ═════════════════════════════════════════════════════════
                     Penjualan Tiket Konser Sanz
                         {Username} Di Menu Admin
@@ -112,7 +115,7 @@ def tampilkan_menu_admin(Username):
           """)
 
 def tampilkan_menu_pengguna(Username):
-    print(style.CVIOLET2 +   f"""
+    print(style.CVIOLET2 + f"""
     ═════════════════════════════════════════════════════════
                     Penjualan Tiket Konser Sanz
                         {Username} Di Menu Pengguna
@@ -130,12 +133,15 @@ def tambah_konser():
     lokasi_konser = input("Lokasi Konser: ")
     tanggal_konser = input("Hari/Tanggal Konser: ")
     harga_tiket = input("Harga Tiket: ")
-    tiket_konser[judul_konser] = {'lokasi': lokasi_konser, 'tanggal': tanggal_konser, 'harga': harga_tiket}  # Menambahkan tiket ke dalam dictionary
+    tiket_konser[judul_konser] = {'lokasi': lokasi_konser, 'tanggal': tanggal_konser, 'harga': harga_tiket}
     print(style.CGREEN2 + "Konser berhasil ditambahkan!\n")
 
 def lihat_konser():
-    for judul, tiket in tiket_konser.items():  
-        print(style.CGREEN2 + f"Judul Konser: {judul}\nLokasi Konser: {tiket['lokasi']}\nHari/Tanggal Konser: {tiket['tanggal']}\nHarga Tiket: {tiket['harga']}\n")
+    table = PrettyTable()
+    table.field_names = ["Judul Konser", "Lokasi Konser", "Hari/Tanggal Konser", "Harga Tiket"]
+    for judul, tiket in tiket_konser.items():
+        table.add_row([judul, tiket['lokasi'], tiket['tanggal'], tiket['harga']])
+    print(table)
 
 def edit_konser():
     if not tiket_konser:
@@ -157,7 +163,7 @@ def edit_konser():
             memastikan_edit = input("Pilih: ")
             if memastikan_edit == "1":
                 del tiket_konser[judul_konser]
-                tiket_konser[judul_baru] = {'lokasi': lokasi_baru, 'tanggal': tanggal_baru, 'harga': harga_baru}  # Mengedit konser
+                tiket_konser[judul_baru] = {'lokasi': lokasi_baru, 'tanggal': tanggal_baru, 'harga': harga_baru}
                 print(style.CGREEN2 + "Konser yang kamu pilih sudah di edit ya!\n")
             elif memastikan_edit == "2":
                 print(style.CRED2 + "Aksi untuk mengedit konser dibatalkan")
@@ -177,7 +183,7 @@ def hapus_konser():
             print("2. Tidak")
             memastikan_hapus = input("Pilih: ")
             if memastikan_hapus == "1":
-                del tiket_konser[hapus]  # Menghapus konser dari dictionary
+                del tiket_konser[hapus]
                 print("Konser yang kamu pilih sudah dihapus!\n")
             elif memastikan_hapus == "2":
                 print("Aksi untuk menghapus konser dibatalkan")
@@ -191,16 +197,16 @@ def beli_tiket(Username):
         print(style.CGREEN2 + f"Judul Konser: {judul}\nLokasi Konser: {tiket['lokasi']}\nHari/Tanggal Konser: {tiket['tanggal']}\nHarga Tiket: {tiket['harga']}\n")
     judul_konser = input("Judul Konser: ")
     if judul_konser in tiket_konser:
-        akun_pengguna[Username]['tiket'].append({'judul': judul_konser, 'lokasi': tiket_konser[judul_konser]['lokasi'], 'tanggal': tiket_konser[judul_konser]['tanggal'], 'harga': tiket_konser[judul_konser]['harga']})  # Menambahkan tiket ke dalam list
+        akun_pengguna[Username]['tiket'].append({'judul': judul_konser, 'lokasi': tiket_konser[judul_konser]['lokasi'], 'tanggal': tiket_konser[judul_konser]['tanggal'], 'harga': tiket_konser[judul_konser]['harga']})
         print(style.CGREEN2 + "Tiket konser berhasil dibeli!\n")
     else:
         print(style.CRED2 + "Konser tidak tersedia.\n")
 
 def lihat_tiket(Username):
-    for tiket in akun_pengguna[Username]['tiket']:  
-        print(style.CGREEN2 + f"Judul Konser: {tiket['judul']}\nLokasi Konser: {tiket['lokasi']}\nHari/Tanggal Konser: { tiket['tanggal']}\nHarga Tiket: {tiket['harga']}\n")
+    for tiket in akun_pengguna[Username]['tiket']:
+        print (style.CGREEN2 + f"Judul Konser: {tiket['judul']}\nLokasi Konser: {tiket['lokasi']}\nHari/Tanggal Konser: {tiket['tanggal']}\nHarga Tiket: {tiket['harga']}\n")
     if not akun_pengguna[Username]['tiket']:
-        print(style.CRED2 + "Opps, saat ini kamu belum punya tiket, sil ahkan beli tiket terlebih dahulu.\n")
+        print(style.CRED2 + "Opps, saat ini kamu belum punya tiket, silahkan beli tiket terlebih dahulu.\n")
 
 while True:
     tampilkan_menu()
