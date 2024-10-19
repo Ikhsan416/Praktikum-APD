@@ -108,8 +108,7 @@ def tampilkan_menu_admin(Username):
         ⒉   Lihat Konser
         ⒊   Edit Konser
         ⒋   Hapus Konser
-        
-        Exit
+        ⒌   Exit
         
         Copyrigth.IkhsanC2
     ═════════════════════════════════════════════════════════
@@ -123,8 +122,7 @@ def tampilkan_menu_pengguna(Username):
             
         ⒈   Beli Tiket Konser
         ⒉   Lihat Tiket Yang Sudah Di Beli
-        
-        Exit
+        ⒌   Exit
         
         Copyrigth.IkhsanC2
     ═════════════════════════════════════════════════════════
