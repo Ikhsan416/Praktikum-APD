@@ -2,8 +2,8 @@ from prettytable import PrettyTable
 
 # Inisialisasi data pengguna dan data tiket konser
 akun_pengguna = {
-    "penjual": {'password': 'jual', 'role': 'admin', 'tiket': []},
-    "pembeli": {'password': 'beli', 'role': 'pengguna', 'tiket': []}
+    "penjual": {'password': '1', 'role': 'admin', 'tiket': []},
+    "pembeli": {'password': '2', 'role': 'pengguna', 'tiket': []}
 }
 
 tiket_konser = {
@@ -23,7 +23,6 @@ class style():
     CBLINK    = '\33[5m'
     CBLINK2   = '\33[6m'
     CSELECTED = '\33[7m'
-
     CBLACK  = '\33[30m'
     CRED    = '\33[31m' 
     CGREEN  = '\33[32m'
@@ -32,7 +31,6 @@ class style():
     CVIOLET = '\33[35m'
     CBEIGE  = '\33[36m'
     CWHITE  = '\33[37m'
-
     CBLACKBG  = '\33[40m'
     CREDBG    = '\33[41m'
     CGREENBG  = '\33[42m'
@@ -41,7 +39,6 @@ class style():
     CVIOLETBG = '\33[45m'
     CBEIGEBG  = '\33[46m'
     CWHITEBG  = '\33[47m'
-
     CGREY    = '\33[90m'
     CRED2    = '\33[91m'
     CGREEN2  = '\33[92m'
@@ -50,7 +47,6 @@ class style():
     CVIOLET2 = '\33[95m'
     CBEIGE2  = '\33[96m'
     CWHITE2  = '\33[97m'
-
     CGREYBG    = '\33[100m'
     CREDBG2    = '\33[101m'
     CGREENBG2  = '\33[102m'
@@ -59,6 +55,11 @@ class style():
     CVIOLETBG2 = '\33[105m'
     CBEIGEBG2  = '\33[106m'
     CWHITEBG2  = '\33[107m'
+
+# Variabel global
+total_konser = len(tiket_konser)
+total_tiket_terjual = 0
+total_pendapatan = 0
 
 def tampilkan_menu():
     print(style.CBLUE2 + """
@@ -108,7 +109,8 @@ def tampilkan_menu_admin(Username):
         ⒉   Lihat Konser
         ⒊   Edit Konser
         ⒋   Hapus Konser
-        ⒌   Exit
+        ⒌   Lihat Statistik
+        ⒍   Exit
         
         Copyrigth.IkhsanC2
     ═════════════════════════════════════════════════════════
@@ -122,18 +124,20 @@ def tampilkan_menu_pengguna(Username):
             
         ⒈   Beli Tiket Konser
         ⒉   Lihat Tiket Yang Sudah Di Beli
-        ⒌   Exit
+        ⒍   Exit
         
         Copyrigth.IkhsanC2
     ═════════════════════════════════════════════════════════
           """)
 
 def tambah_konser():
+    global total_konser
     judul_konser = input("Judul Konser: ")
     lokasi_konser = input("Lokasi Konser: ")
     tanggal_konser = input("Hari/Tanggal Konser: ")
     harga_tiket = input("Harga Tiket: ")
     tiket_konser[judul_konser] = {'lokasi': lokasi_konser, 'tanggal': tanggal_konser, 'harga': harga_tiket}
+    total_konser += 1
     print(style.CGREEN2 + "Konser berhasil ditambahkan!\n")
 
 def lihat_konser():
@@ -173,6 +177,7 @@ def edit_konser():
             print(style.CRED2 + "Tidak ada nomor konser yang kamu maksud, silahkan input ulang.\n")
 
 def hapus_konser():
+    global total_konser
     if not tiket_konser:
         print("Tidak ada konser yang bisa dihapus.")
     else:
@@ -184,6 +189,7 @@ def hapus_konser():
             memastikan_hapus = input("Pilih: ")
             if memastikan_hapus == "1":
                 del tiket_konser[hapus]
+                total_konser -= 1
                 print("Konser yang kamu pilih sudah dihapus!\n")
             elif memastikan_hapus == "2":
                 print("Aksi untuk menghapus konser dibatalkan")
@@ -193,11 +199,14 @@ def hapus_konser():
             print("Tidak ada konser yang kamu maksud, silahkan input ulang.\n")
 
 def beli_tiket(Username):
+    global total_tiket_terjual, total_pendapatan
     for judul, tiket in tiket_konser.items():
         print(style.CGREEN2 + f"Judul Konser: {judul}\nLokasi Konser: {tiket['lokasi']}\nHari/Tanggal Konser: {tiket['tanggal']}\nHarga Tiket: {tiket['harga']}\n")
     judul_konser = input("Judul Konser: ")
     if judul_konser in tiket_konser:
         akun_pengguna[Username]['tiket'].append({'judul': judul_konser, 'lokasi': tiket_konser[judul_konser]['lokasi'], 'tanggal': tiket_konser[judul_konser]['tanggal'], 'harga': tiket_konser[judul_konser]['harga']})
+        total_tiket_terjual += 1
+        total_pendapatan += int(tiket_konser[judul_konser]['harga'].replace('Rp ', ''))
         print(style.CGREEN2 + "Tiket konser berhasil dibeli!\n")
     else:
         print(style.CRED2 + "Konser tidak tersedia.\n")
@@ -207,6 +216,11 @@ def lihat_tiket(Username):
         print (style.CGREEN2 + f"Judul Konser: {tiket['judul']}\nLokasi Konser: {tiket['lokasi']}\nHari/Tanggal Konser: {tiket['tanggal']}\nHarga Tiket: {tiket['harga']}\n")
     if not akun_pengguna[Username]['tiket']:
         print(style.CRED2 + "Opps, saat ini kamu belum punya tiket, silahkan beli tiket terlebih dahulu.\n")
+
+def lihat_statistik():
+    print(style.CGREEN2 + f"Total Konser: {total_konser}")
+    print(style.CGREEN2 + f"Total Tiket Terjual: {total_tiket_terjual}")
+    print(style.CGREEN2 + f"Total Pendapatan: Rp {total_pendapatan}")
 
 while True:
     tampilkan_menu()
@@ -246,7 +260,12 @@ while True:
                         hapus_konser()
                     else:
                         print("Anda tidak memiliki akses untuk menghapus konser.\n")
-                elif status == "exit":
+                elif status == "5":
+                    if akun_pengguna[Username]['role'] == 'admin':
+                        lihat_statistik()
+                    else:
+                        print("Anda tidak memiliki akses untuk melihat statistik.\n")
+                elif status == "6":
                         print("Aplikasi Pembelian Tiket Konser ditutup.\n")
                         break
                 else:
