@@ -108,7 +108,8 @@ def tampilkan_menu_admin(Username):
         ⒉   Lihat Konser
         ⒊   Edit Konser
         ⒋   Hapus Konser
-        ⒌   Exit
+        
+        Exit
         
         Copyrigth.IkhsanC2
     ═════════════════════════════════════════════════════════
@@ -122,7 +123,8 @@ def tampilkan_menu_pengguna(Username):
             
         ⒈   Beli Tiket Konser
         ⒉   Lihat Tiket Yang Sudah Di Beli
-        ⒊   Exit
+        
+        Exit
         
         Copyrigth.IkhsanC2
     ═════════════════════════════════════════════════════════
@@ -246,12 +248,9 @@ while True:
                         hapus_konser()
                     else:
                         print("Anda tidak memiliki akses untuk menghapus konser.\n")
-                elif status == "5":
-                    if akun_pengguna[Username]['role'] == 'admin':
+                elif status == "exit":
                         print("Aplikasi Pembelian Tiket Konser ditutup.\n")
                         break
-                    else:
-                        print("Anda tidak memiliki akses untuk mengedit konser.\n")
                 else:
                     print("Input tidak valid, silahkan pilih 1, 2, 3, 4, atau 5.\n")
         else:
